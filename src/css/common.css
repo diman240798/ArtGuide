@@ -8,7 +8,7 @@
     padding-right: 5px;
 }
 
-.margin{
+.margin {
     margin: 10px
 }
 
@@ -22,4 +22,9 @@
 
 .padding-start {
     padding-left: 10px;
+}
+
+.green_hover :hover {
+    color: #006C6D;
+    font-size: 20px;
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import AttractionTypeCard from "../containers/AttractionTypeCard";
-import AttractionBriefInfo from "../containers/AttractionBriefInfo";
-import AttractionFullInfo from "../containers/AttractionFullInfo";
+import AttractionTypeCard from "../components/AttractionTypeCard";
+import AttractionBriefInfo from "../components/AttractionBriefInfo";
+import AttractionFullInfo from "../components/AttractionFullInfo";
 
 export const Map = () => (
     <Row>

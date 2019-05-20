@@ -1,5 +1,5 @@
 import React from 'react'
-import AttractionTypeCard from "../containers/AttractionTypeCard";
+import AttractionTypeCard from "../components/AttractionTypeCard";
 import {connect} from "react-redux";
 import {fetchTypes} from '../actions'
 
@@ -14,13 +14,17 @@ class Types extends React.Component {
     }
 
     render() {
-        const { types } = this.props;
+        const {types} = this.props;
 
-        if (!types.length) return;
+        if (!types.length) return null;
 
-        return types.map(type =>
-            <AttractionTypeCard {...type} />
-        );
+        return <React.Fragment>
+            {
+                types.map(type =>
+                    <AttractionTypeCard {...type} />
+                )
+            }
+        </React.Fragment>
     }
 }
 

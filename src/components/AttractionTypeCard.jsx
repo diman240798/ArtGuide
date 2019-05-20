@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import {connect} from "react-redux";
+import '../css/common.css'
 
 class AttractionTypeCard extends React.Component {
 
@@ -12,7 +13,7 @@ class AttractionTypeCard extends React.Component {
         const path = `images/${image}`;
 
         var card =
-            <React.Fragment>
+            <div className="green_hover">
                 <Card border="dark">
                     <Row>
                         <Col xs={3}>
@@ -29,7 +30,7 @@ class AttractionTypeCard extends React.Component {
                     </Row>
                 </Card>
                 <hr style={{border: 0}}/>
-            </React.Fragment>;
+            </div>;
 
         return card;
     }
