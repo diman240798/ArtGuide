@@ -28,7 +28,7 @@ class Types extends React.Component {
     }
 }
 
-const mapStateToProps = (state, onwProps) => {
+const mapStateToProps = (state, ownProps) => {
     return {
         types: state.types.list
     }
