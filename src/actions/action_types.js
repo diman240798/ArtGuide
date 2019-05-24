@@ -1,2 +1,4 @@
 export const FETCH_TYPES_LIST = 'FETCH_TYPES_LIST';
 export const SET_TYPES_LIST = 'SET_TYPES_LIST';
+export const FETCH_PLACES_LIST = 'FETCH_PLACES_LIST';
+export const SET_PLACES_LIST = 'SET_PLACES_LIST';

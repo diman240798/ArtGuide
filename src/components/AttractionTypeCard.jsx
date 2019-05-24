@@ -5,30 +5,34 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import {connect} from "react-redux";
 import '../css/common.css'
+import {Link} from "react-router-dom";
 
 class AttractionTypeCard extends React.Component {
 
     render() {
-        const {title, image} = this.props;
-        const path = `images/${image}`;
+        const {title, image, link} = this.props;
+        const imagePath = `images/${image}`;
+        const linkPath = `/${link}`
 
         var card =
             <div className="green_hover">
-                <Card border="dark">
-                    <Row>
-                        <Col xs={3}>
-                            <div className="Center-Container padding">
-                                <Image src={path}  />
-                                {/*src="images/map_marker_museam.png"*/}
-                            </div>
-                        </Col>
-                        <Col xs={8}>
-                            <div className="Center-Container">
-                                <Card.Title>{title}</Card.Title>
-                            </div>
-                        </Col>
-                    </Row>
-                </Card>
+                <Link to={linkPath}>
+                    <Card border="dark">
+                        <Row>
+                            <Col xs={3}>
+                                <div className="Center-Container padding">
+                                    <Image src={imagePath}/>
+                                    {/*src="images/map_marker_museam.png"*/}
+                                </div>
+                            </Col>
+                            <Col xs={8}>
+                                <div className="Center-Container">
+                                    <Card.Title>{title}</Card.Title>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Card>
+                </Link>
                 <hr style={{border: 0}}/>
             </div>;
 
@@ -37,15 +41,11 @@ class AttractionTypeCard extends React.Component {
 }
 
 const mapStateToProps = (state, onwProps) => {
-    return {
-
-    }
+    return {}
 };
 
 const mapDispatchToProps = dispatch => {
-    return {
-
-    }
+    return {}
 };
 
 export default connect(

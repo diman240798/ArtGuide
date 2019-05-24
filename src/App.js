@@ -10,6 +10,8 @@ import TypesPage from "./containers/TypesPage";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import {links} from "./repo/LocalRepository";
+import BriefPage from "./containers/BriefPage";
 
 
 class App extends Component {
@@ -26,6 +28,12 @@ class App extends Component {
                                 <Layout>
                                     <Switch>
                                         <Route exact path="/" component={TypesPage}/>
+                                        {
+                                            links.map(link => {
+                                                const path = `/${link}`
+                                                return <Route path={path} component={BriefPage} />
+                                            })
+                                        }
                                         <Route path="/about" component={About}/>
                                         <Route path="/contact" component={Map}/>
                                         <Route component={NoMatch}/>
