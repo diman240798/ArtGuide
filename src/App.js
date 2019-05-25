@@ -10,7 +10,7 @@ import TypesPage from "./containers/TypesPage";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import {links} from "./repo/LocalRepository";
+import {LINKS} from "./repo/LocalRepository";
 import BriefPage from "./containers/BriefPage";
 
 
@@ -29,7 +29,7 @@ class App extends Component {
                                     <Switch>
                                         <Route exact path="/" component={TypesPage}/>
                                         {
-                                            links.map(link => {
+                                            LINKS.map(link => {
                                                 const path = `/${link}`
                                                 return <Route path={path} component={BriefPage} />
                                             })
