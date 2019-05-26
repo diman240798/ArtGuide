@@ -2,7 +2,6 @@ import React from 'react'
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
 
 class AttractionBriefInfo extends React.Component {
 
@@ -18,20 +17,29 @@ class AttractionBriefInfo extends React.Component {
                 <Card border="dark">
                     <Row>
                         <Col xs={5}>
-                            <div>
-                                <img class="img-fluid imageBriefSize" src={smallImagePath} />
-                            </div>
+                            <img class="img-fluid imageBriefSize" src={smallImagePath}/>
                         </Col>
-                        <Col xs={7}>
-                            <h6>{name}</h6>
-                            <div className="padding-end">
-                                <p>{descriptionText}</p>
-                            </div>
+
+                        <Col xs={7} style={{"margin-left": "0", "padding-left": "0"}}>
+                            <Col xs={12}>
+                                <Row>
+                                    <h6>{name}</h6>
+                                    <p>{descriptionText}</p>
+                                </Row>
+                            </Col>
+                            <Col xs={12}>
+                                <Row>
+                                    <img className="moreButton" src="images/main_button_start_tour.png"/>
+                                    <Col xs={1}/>
+                                    <img className="roadButton" src="images/build_road_red.png"/>
+                                </Row>
+                            </Col>
                         </Col>
+
                     </Row>
                 </Card>
                 <hr style={{border: 0}}/>
-            </React.Fragment>
+            </React.Fragment>;
 
         return card;
     }
