@@ -8,19 +8,24 @@ class AttractionBriefInfo extends React.Component {
 
     render() {
 
+        const {id, name, description, longitude, latitude, imageSmall, imageBig} = this.props;
+
+        const smallImagePath = `images/${imageSmall}.jpg`;
+        const descriptionText = `${description.slice(0, 60)}...`;
+
         var card =
             <React.Fragment>
                 <Card border="dark">
                     <Row>
                         <Col xs={5}>
                             <div>
-                                <Image src="images/museum_kraevedeniya_small.jpg" fluid/>
+                                <img class="img-fluid imageBriefSize" src={smallImagePath} />
                             </div>
                         </Col>
                         <Col xs={7}>
-                            <Card.Title>Музей</Card.Title>
+                            <h6>{name}</h6>
                             <div className="padding-end">
-                                <Card.Text>sndfsdnfklsndflknsdlkfnsdlnflksdnfklndskfndsklnflksdnfkljsdnlfjnsd</Card.Text>
+                                <p>{descriptionText}</p>
                             </div>
                         </Col>
                     </Row>

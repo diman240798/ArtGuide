@@ -33,8 +33,11 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background-size: cover;
     background:url("/images/Site3.svg") no-repeat center center fixed;
     background-size: cover;
     display: block;
+}
+
+.imageBriefSize {
+    height:100%
 }

@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/action_types'
 
 const initialState = {
-    list: ""
+    list: []
 };
 
 const Places = (state = initialState, action) => {

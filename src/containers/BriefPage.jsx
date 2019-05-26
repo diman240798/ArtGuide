@@ -2,11 +2,14 @@ import React from 'react'
 import AttractionTypeCard from "../components/AttractionTypeCard";
 import {connect} from "react-redux";
 import {fetchPlaces} from '../actions'
+import AttractionBriefInfo from "../components/AttractionBriefInfo";
 
 class BriefPage extends React.Component {
     componentWillMount() {
         const {fetchPlaces} = this.props;
-        fetchPlaces()
+        let url = this.props.location.pathname;
+        const attractionType = url.slice(1, url.length)
+        fetchPlaces(attractionType)
     }
 
     componentDidMount() {
@@ -16,10 +19,12 @@ class BriefPage extends React.Component {
     render() {
         const {places} = this.props;
 
-        if (places === "") return null;
+        if (places.length === 0) return null;
 
         return <React.Fragment>
-            {places}
+            {places.map(place => (
+                <AttractionBriefInfo {...place} />
+            ))}
         </React.Fragment>
     }
 }
@@ -32,7 +37,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchPlaces: () => dispatch(fetchPlaces())
+        fetchPlaces: (attractionType) => dispatch(fetchPlaces(attractionType))
     }
 };
 

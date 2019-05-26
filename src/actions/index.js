@@ -9,8 +9,9 @@ export const setTypes = (types) => ({
     payload: types
 });
 
-export const fetchPlaces = () => ({
-    type: FETCH_PLACES_LIST
+export const fetchPlaces = (attractionType) => ({
+    type: FETCH_PLACES_LIST,
+    payload: attractionType
 });
 
 export const setPlaces = (types) => ({
