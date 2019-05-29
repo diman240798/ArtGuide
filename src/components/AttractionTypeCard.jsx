@@ -13,15 +13,16 @@ class AttractionTypeCard extends React.Component {
 
         return <React.Fragment>
             <Link to={linkPath}>
-                <MDBCard style={{height: "4rem"}} border>
+                <MDBCard border>
                     <MDBRow>
                         <MDBCol style={{margin: "1rem"}} size={3}>
                             <MDBCardImage src={imagePath} zoom/>
                         </MDBCol>
 
-                        <MDBCol style={{padding: 15}} className="green_hover" size={8}>
-                            <MDBCardTitle className="text-body">{title}</MDBCardTitle>
-
+                        <MDBCol className="green_hover" size={6}>
+                            <div className="Center-Container">
+                                <MDBCardTitle className="text-body">{title}</MDBCardTitle>
+                            </div>
                         </MDBCol>
                     </MDBRow>
                 </MDBCard>
