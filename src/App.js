@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {About} from './containers/About';
-import {Map} from './containers/Map';
 import {NoMatch} from './containers/NoMatch';
 import {Layout} from './components/Layout.jsx';
 import {NavigationBar} from './components/NavigationBar.jsx';
@@ -23,30 +21,28 @@ class App extends Component {
                     {/*<Jumbotron />*/}
                     <div className="bg">
                         <Container>
-                        <Row>
-                            <Col md={5}>
-                                <Layout>
-                                    <Switch>
-                                        <Route exact path="/" component={TypesPage}/>
-                                        {
-                                            LINKS.map(link => {
-                                                const path = `/${link}`
-                                                return <Route path={path} component={BriefPage} />
-                                            })
-                                        }
-                                        <Route path="/about" component={About}/>
-                                        <Route path="/contact" component={Map}/>
-                                        <Route component={NoMatch}/>
-                                    </Switch>
-                                </Layout>
-                            </Col>
+                            <Row>
+                                <Col md={5}>
+                                    <Layout>
+                                        <Switch>
+                                            <Route exact path="/" component={TypesPage}/>
+                                            {
+                                                LINKS.map(link => {
+                                                    const path = `/${link}`
+                                                    return <Route path={path} component={BriefPage}/>
+                                                })
+                                            }
+                                            <Route component={NoMatch}/>
+                                        </Switch>
+                                    </Layout>
+                                </Col>
 
-                            <Col md={2}/>
+                                <Col md={2}/>
 
-                            <Col md={5}>
-                                <h1>MAP</h1>
-                            </Col>
-                        </Row>
+                                <Col md={5}>
+                                    <h1>MAP</h1>
+                                </Col>
+                            </Row>
                         </Container>
                     </div>
                 </Router>

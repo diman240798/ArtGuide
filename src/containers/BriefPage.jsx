@@ -1,8 +1,7 @@
 import React from 'react'
-import AttractionTypeCard from "../components/AttractionTypeCard";
 import {connect} from "react-redux";
 import {fetchPlaces} from '../actions'
-import AttractionBriefInfo from "../components/AttractionBriefInfo";
+import AttractionBriefInfoCard from "../components/AttractionBriefInfoCard";
 
 class BriefPage extends React.Component {
     componentWillMount() {
@@ -23,7 +22,7 @@ class BriefPage extends React.Component {
 
         return <React.Fragment>
             {places.map(place => (
-                <AttractionBriefInfo {...place} />
+                <AttractionBriefInfoCard {...place} />
             ))}
         </React.Fragment>
     }
