@@ -1,10 +1,10 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import {MDBContainer} from 'mdbreact'
 
 export const Layout = (props) => (
-  <div style={{"padding": "20px"}}>
-    <Container>
-      {props.children}
-    </Container>
-  </div>
+    <div style={{"padding": "20px"}}>
+        <MDBContainer>
+            {props.children}
+        </MDBContainer>
+    </div>
 )

@@ -1,7 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {Nav, Navbar} from 'react-bootstrap';
 import styled from 'styled-components';
+import {MDBCollapse, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNavItem, MDBNavLink} from 'mdbreact'
 import Image from "react-bootstrap/Image";
 
 const Styles = styled.div`
@@ -18,38 +17,41 @@ const Styles = styled.div`
   }
 `;
 
-export const NavigationBar = () => (
-    <Styles>
-        <Navbar expand="lg">
-            <div className="sign">
-                <Image src="images/smaller_sign.png"/>
-            </div>
-            <Navbar.Brand href="/">ArtGuide</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                    <Nav.Item>
-                        <Nav.Link>
-                            <Link to="/">Ростов-на-Дону</Link>
-                        </Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link>
-                            <Link to="/">Санкт-Петербург</Link>
-                        </Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link>
-                            <Link to="/">Москва</Link>
-                        </Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link>
-                            <Link to="/">Поддержать проект</Link>
-                        </Nav.Link>
-                    </Nav.Item>
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
-    </Styles>
-)
+export class NavigationBar extends React.Component {
+    state = {
+        isOpen: false
+    };
+
+    toggleCollapse = () => {
+        this.setState({isOpen: !this.state.isOpen});
+    }
+
+    render() {
+        return <Styles>
+            <MDBNavbar expand="lg" light>
+                <div className="sign">
+                    <Image src="images/smaller_sign.png"/>
+                </div>
+                <MDBNavbarBrand href="/">ArtGuide</MDBNavbarBrand>
+                <MDBNavbarToggler onClick={this.toggleCollapse}/>
+                <MDBCollapse isOpen={this.state.isOpen} navbar>
+                    <MDBNavbarNav left>
+                        <MDBNavItem>
+                            <MDBNavLink to="/">Ростов-на-Дону</MDBNavLink>
+                        </MDBNavItem>
+                        <MDBNavItem>
+                            <MDBNavLink to="/">Санкт-Петербург</MDBNavLink>
+                        </MDBNavItem>
+                        <MDBNavItem>
+                            <MDBNavLink to="/">Москва</MDBNavLink>
+                        </MDBNavItem>
+                        <MDBNavItem>
+                            <MDBNavLink to="/">Поддержать проект</MDBNavLink>
+                        </MDBNavItem>
+                    </MDBNavbarNav>
+                </MDBCollapse>
+            </MDBNavbar>
+        </Styles>
+    }
+
+}
