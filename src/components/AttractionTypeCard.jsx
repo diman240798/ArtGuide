@@ -18,8 +18,9 @@ class AttractionTypeCard extends React.Component {
                         <MDBCol style={{margin: "1rem"}} size={3}>
                             <MDBCardImage src={imagePath} zoom/>
                         </MDBCol>
-                        <MDBCol style={{padding: 15}} size={8}>
-                            <MDBCardTitle>{title}</MDBCardTitle>
+
+                        <MDBCol style={{padding: 15}} className="green_hover" size={8}>
+                            <MDBCardTitle className="text-body">{title}</MDBCardTitle>
 
                         </MDBCol>
                     </MDBRow>

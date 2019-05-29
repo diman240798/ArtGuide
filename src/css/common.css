@@ -26,20 +26,21 @@
 
 .green_hover :hover {
     color: #006C6D;
-    font-size: 20px;
+    font-size: 30px;
+    padding: 0px;
 }
 
 .bg {
     position: relative;
     width: 100%;
-    height: 100vh;
-    background:url("/images/Site3.svg") no-repeat center center fixed;
+    height: 200vh;
+    background: url("/images/Site3.svg") no-repeat center center fixed;
     background-size: cover;
     display: block;
 }
 
 .imageBriefSize {
-    height:100%
+    height: 100%
 }
 
 .roadButton {
@@ -47,6 +48,7 @@
     height: 30px;
     background: #fff
 }
+
 .moreButton {
     width: 70px;
     height: 30px;

@@ -1,5 +1,5 @@
 import React from 'react'
-import {MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBIcon, MDBRow} from 'mdbreact';
+import {MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCol, MDBRow} from 'mdbreact';
 
 
 class AttractionBriefInfoCard extends React.Component {
@@ -34,7 +34,7 @@ class AttractionBriefInfoCard extends React.Component {
                                 </MDBCol>
                                 <MDBCol size={2}></MDBCol>
                                 <MDBCol size={3}>
-                                    <img style={{marginTop:4}} className="roadButton" src="images/build_road_red.png"/>
+                                    <img style={{marginTop: 4}} className="roadButton" src="images/build_road_red.png"/>
                                 </MDBCol>
                             </MDBRow>
                         </MDBCardBody>

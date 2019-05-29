@@ -51,7 +51,7 @@ const TYPES = [
         link: LINKS[2],
         image: "map_marker_memorial.png"
     }, {
-        title: ATTRACTION_TITLES[4],
+        title: ATTRACTION_TITLES[3],
         link: LINKS[3],
         image: "map_marker_stadium.png"
     }, {
