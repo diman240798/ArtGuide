@@ -32,7 +32,7 @@ class AttractionBriefInfoCard extends React.Component {
 
         const smallImagePath = `images/${imageSmall}.jpg`;
         const descriptionText = `${description.slice(0, 60)}...`;
-        const linkId = `/${id}`;
+        const linkId = `/places/${id}`;
 
 
         return <React.Fragment>

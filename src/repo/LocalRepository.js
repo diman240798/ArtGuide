@@ -67,13 +67,20 @@ export function getTypes() {
 }
 
 ///////// Places
+
+export const getPlaceById = (id) => {
+    console.log(id);
+    let attractionType = getAttractionType(id);
+    return getPlaces(attractionType).filter(place => place.id === id)[0];
+};
+
 const getAttractionType = (id) => {
     return LINKS[Math.floor(id / 100)]
-}
+};
 
-let places = {};
+var places = {};
 
-export function getPlaces(attractionType) {
+export const getPlaces = (attractionType) => {
     if (places === true) return places[attractionType];
 
     LINKS.forEach(type => {

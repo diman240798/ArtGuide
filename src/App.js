@@ -6,9 +6,9 @@ import {NavigationBar} from './components/NavigationBar.jsx';
 import "./css/common.css"
 import TypesPage from "./containers/TypesPage";
 import {MDBCol, MDBContainer, MDBRow} from "mdbreact";
-import {LINKS} from "./repo/LocalRepository";
+import {LINKS, getPlaces} from "./repo/LocalRepository";
 import BriefPage from "./containers/BriefPage";
-
+import FullPage from "./containers/FullPage";
 
 class App extends Component {
     render() {
@@ -30,6 +30,7 @@ class App extends Component {
                                                     return <Route path={path} component={BriefPage}/>
                                                 })
                                             }
+                                            <Route path="/places/:id" component={FullPage}/>
                                             <Route component={NoMatch}/>
                                         </Switch>
                                     </Layout>
