@@ -26,7 +26,9 @@
 
 .green_hover :hover {
     color: #006C6D;
-    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+    font-optical-sizing: auto;
     padding: 0px;
 }
 

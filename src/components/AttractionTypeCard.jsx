@@ -1,8 +1,7 @@
 import React from 'react'
-import {connect} from "react-redux";
 import '../css/common.css'
-import {Link} from "react-router-dom";
-import {MDBCard, MDBCardImage, MDBCardTitle, MDBCol, MDBRow} from "mdbreact";
+import {MDBCard, MDBCardImage, MDBCardTitle, MDBCol, MDBMask, MDBRow, MDBView, NavLink} from "mdbreact";
+import {connect} from "react-redux";
 
 class AttractionTypeCard extends React.Component {
 
@@ -12,21 +11,28 @@ class AttractionTypeCard extends React.Component {
         const linkPath = `/${link}`;
 
         return <React.Fragment>
-            <Link to={linkPath}>
-                <MDBCard border>
-                    <MDBRow>
-                        <MDBCol style={{margin: "1rem"}} size={3}>
-                            <MDBCardImage src={imagePath} zoom/>
-                        </MDBCol>
+            <NavLink to={linkPath} activeStyle={{ color: 'teal' }} style={{width: "20rem"}}>
+                <MDBView hover zoom>
 
-                        <MDBCol className="green_hover" size={6}>
-                            <div className="Center-Container">
-                                <MDBCardTitle className="text-body">{title}</MDBCardTitle>
-                            </div>
-                        </MDBCol>
-                    </MDBRow>
-                </MDBCard>
-            </Link>
+                    <MDBCard border className="hoverable">
+                        <MDBRow>
+                            <MDBCol style={{marginTop: "1rem", marginBottom: "1rem", marginLeft: "1rem"}} size={3}
+                                    xs={3}
+                                    sm={3} md={3}>
+                                <MDBCardImage src={imagePath} zoom/>
+                            </MDBCol>
+
+                            <MDBCol size={6} xs={6} sm={7} md={8}>
+                                <div className="Center-Container">
+                                    <MDBCardTitle className="text-body">{title}</MDBCardTitle>
+                                </div>
+                            </MDBCol>
+                        </MDBRow>
+                    </MDBCard>
+
+                    <MDBMask className="flex-center" overlay="green-light"/>
+                </MDBView>
+            </NavLink>
             <hr style={{border: 0}}/>
         </React.Fragment>;
     }
