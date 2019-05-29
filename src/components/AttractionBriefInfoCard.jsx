@@ -1,12 +1,28 @@
 import React from 'react'
-import {MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBRow, MDBView} from 'mdbreact';
+import {
+    MDBBtn,
+    MDBCard,
+    MDBCardBody,
+    MDBCardImage,
+    MDBCardText,
+    MDBCardTitle,
+    MDBCol,
+    MDBRow,
+    MDBView,
+    NavLink
+} from 'mdbreact';
+import {Redirect} from "react-router-dom";
 
 
 class AttractionBriefInfoCard extends React.Component {
 
-    image(img) {
+    buildRoute(img) {
         var src = img.src;
         window.open(src);
+    }
+
+    showMore(linkId) {
+        window.location = linkId;
     }
 
     render() {
@@ -16,7 +32,7 @@ class AttractionBriefInfoCard extends React.Component {
 
         const smallImagePath = `images/${imageSmall}.jpg`;
         const descriptionText = `${description.slice(0, 60)}...`;
-        const linkPath = `/${id}`;
+        const linkId = `/${id}`;
 
 
         return <React.Fragment>
@@ -24,9 +40,12 @@ class AttractionBriefInfoCard extends React.Component {
                 <MDBCard border>
                     <MDBRow>
                         <MDBCol>
-                            <MDBCardImage style={{width: "100%"}} src={smallImagePath}/>
+                            <div onClick={() => this.showMore(linkId)}>
+                                <MDBCardImage style={{width: "100%"}} src={smallImagePath}/>
+                            </div>
+
                             <MDBCardBody>
-                                <MDBCardTitle>{name}</MDBCardTitle>
+                                <MDBCardTitle style={{color: "#006C6D"}}>{name}</MDBCardTitle>
 
                                 <div className="d-none d-md-block">
                                     <MDBCardText>{descriptionText}</MDBCardText>
@@ -34,14 +53,15 @@ class AttractionBriefInfoCard extends React.Component {
 
                                 <MDBRow>
                                     <MDBCol xs={6}>
-                                        <MDBBtn size="sm" style={{fontSize: "10px", backgroundColor: "#006C6D"}}>
+                                        <MDBBtn onClick={() => this.showMore(linkId)} size="sm" style={{fontSize: "10px", backgroundColor: "#006C6D"}}>
                                             Подробнее
                                         </MDBBtn>
                                     </MDBCol>
 
                                     <MDBCol size={1}/>
 
-                                    <img onClick={img => this.image(img)} style={{marginTop: 4}} className="roadButton" src="images/build_road_red.png" alt="sdas"/>
+                                    <img onClick={img => this.buildRoute(img)} style={{marginTop: 4}}
+                                         className="roadButton" src="images/build_road_red.png" alt="sdas"/>
                                 </MDBRow>
 
                             </MDBCardBody>
