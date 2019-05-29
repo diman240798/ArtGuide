@@ -35,7 +35,7 @@ export const NavigationBar = () => (
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link>
-                            <Link to="/">Санкт-Питербург</Link>
+                            <Link to="/">Санкт-Петербург</Link>
                         </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>

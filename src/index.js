@@ -10,6 +10,9 @@ import {Provider} from 'react-redux';
 import {logger} from 'redux-logger';
 import reducer from './reducers';
 import rootSaga from './sagas';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 
 const sagaMiddleware = createSagaMiddleware();
 
