@@ -1,7 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import {MDBCollapse, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNavItem, MDBNavLink} from 'mdbreact'
-import Image from "react-bootstrap/Image";
+import {
+    MDBCollapse,
+    MDBIcon,
+    MDBNavbar,
+    MDBNavbarBrand,
+    MDBNavbarNav,
+    MDBNavbarToggler,
+    MDBNavItem,
+    MDBNavLink
+} from 'mdbreact'
 
 const Styles = styled.div`
   .navbar {
@@ -30,7 +38,7 @@ export class NavigationBar extends React.Component {
         return <Styles>
             <MDBNavbar expand="lg" light>
                 <div className="sign">
-                    <Image src="images/smaller_sign.png"/>
+                    <img src="images/smaller_sign.png"/>
                 </div>
                 <MDBNavbarBrand href="/">ArtGuide</MDBNavbarBrand>
                 <MDBNavbarToggler onClick={this.toggleCollapse}/>

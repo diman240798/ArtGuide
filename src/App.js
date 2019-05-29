@@ -5,9 +5,7 @@ import {Layout} from './components/Layout.jsx';
 import {NavigationBar} from './components/NavigationBar.jsx';
 import "./css/common.css"
 import TypesPage from "./containers/TypesPage";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
+import {MDBCol, MDBContainer, MDBRow} from "mdbreact";
 import {LINKS} from "./repo/LocalRepository";
 import BriefPage from "./containers/BriefPage";
 
@@ -20,9 +18,9 @@ class App extends Component {
                     <NavigationBar/>
                     {/*<Jumbotron />*/}
                     <div className="bg">
-                        <Container>
-                            <Row>
-                                <Col md={5}>
+                        <MDBContainer>
+                            <MDBRow>
+                                <MDBCol md={5}>
                                     <Layout>
                                         <Switch>
                                             <Route exact path="/" component={TypesPage}/>
@@ -35,15 +33,15 @@ class App extends Component {
                                             <Route component={NoMatch}/>
                                         </Switch>
                                     </Layout>
-                                </Col>
+                                </MDBCol>
 
-                                <Col md={2}/>
+                                <MDBCol md={2}/>
 
-                                <Col md={5}>
+                                <MDBCol md={5}>
                                     <h1>MAP</h1>
-                                </Col>
-                            </Row>
-                        </Container>
+                                </MDBCol>
+                            </MDBRow>
+                        </MDBContainer>
                     </div>
                 </Router>
             </React.Fragment>
