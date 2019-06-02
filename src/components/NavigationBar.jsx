@@ -13,14 +13,15 @@ import {
 
 const Styles = styled.div`
   .navbar {
-    background: url(images/back.png);
+    background: url(/images/back.png);
   }
 
   a, .navbar-brand, .navbar-nav .nav-link {
-    color: #111;
+    color: #006C6D;
 
     &:hover {
-      color: #006C6D;
+      color: red;
+      font-size: 14px
     }
   }
 `;
@@ -38,7 +39,7 @@ export class NavigationBar extends React.Component {
         return <Styles>
             <MDBNavbar expand="lg" light>
                 <div className="sign">
-                    <img src="images/smaller_sign.png"/>
+                    <img src="/images/smaller_sign.png" alt=""/>
                 </div>
                 <MDBNavbarBrand href="/">ArtGuide</MDBNavbarBrand>
                 <MDBNavbarToggler onClick={this.toggleCollapse}/>

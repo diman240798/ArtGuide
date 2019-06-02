@@ -32,6 +32,10 @@
     padding: 0px;
 }
 
+.hoverBold :focus {
+    font-size: 30px;
+}
+
 .bg {
     position: relative;
     width: 100%;

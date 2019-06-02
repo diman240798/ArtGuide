@@ -41,23 +41,28 @@ const TYPES = [
     {
         title: ATTRACTION_TITLES[0],
         link: LINKS[0],
-        image: "map_marker_museam.png"
+        image: "map_marker_museam.png",
+        maskColor: "red-light"
     }, {
         title: ATTRACTION_TITLES[1],
         link: LINKS[1],
-        image: "map_marker_theatre.png"
+        image: "map_marker_theatre.png",
+        maskColor: "yellow-light"
     }, {
         title: ATTRACTION_TITLES[2],
         link: LINKS[2],
-        image: "map_marker_memorial.png"
+        image: "map_marker_memorial.png",
+        maskColor: "purple-light"
     }, {
         title: ATTRACTION_TITLES[3],
         link: LINKS[3],
-        image: "map_marker_stadium.png"
+        image: "map_marker_stadium.png",
+        maskColor: "orange-light"
     }, {
         title: ATTRACTION_TITLES[4],
         link: LINKS[4],
-        image: "map_marker_park.png"
+        image: "map_marker_park.png",
+        maskColor: "blue-light"
     },
 ];
 

@@ -24,6 +24,8 @@ class App extends Component {
                                 <MDBCol md={5}>
                                     <Layout>
                                         <Switch>
+                                            <Route path="/places/:id" component={FullPage}/>
+
                                             <Route exact path="/" component={TypesPage}/>
                                             {
                                                 LINKS.map(link => {
@@ -31,7 +33,7 @@ class App extends Component {
                                                     return <Route path={path} component={BriefPage}/>
                                                 })
                                             }
-                                            <Route path="/places/:id" component={FullPage}/>
+
                                             <Route component={NoMatch}/>
                                         </Switch>
                                     </Layout>

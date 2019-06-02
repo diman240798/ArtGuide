@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 class AttractionTypeCard extends React.Component {
 
     render() {
-        const {title, image, link} = this.props;
+        const {title, image, link, maskColor} = this.props;
         const imagePath = `images/${image}`;
         const linkPath = `/${link}`;
 
@@ -24,13 +24,13 @@ class AttractionTypeCard extends React.Component {
 
                             <MDBCol size={6} xs={6} sm={7} md={8}>
                                 <div className="Center-Container">
-                                    <MDBCardTitle className="text-body">{title}</MDBCardTitle>
+                                    <MDBCardTitle className="text-body hoverBold">{title}</MDBCardTitle>
                                 </div>
                             </MDBCol>
                         </MDBRow>
                     </MDBCard>
 
-                    <MDBMask className="flex-center" overlay="green-light"/>
+                    <MDBMask className="flex-center" overlay={maskColor}/>
                 </MDBView>
             </NavLink>
             <hr style={{border: 0}}/>
