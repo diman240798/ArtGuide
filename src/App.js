@@ -9,6 +9,7 @@ import {MDBCol, MDBContainer, MDBRow} from "mdbreact";
 import {LINKS, getPlaces} from "./repo/LocalRepository";
 import BriefPage from "./containers/BriefPage";
 import FullPage from "./containers/FullPage";
+import MapPage from "./containers/MapPage";
 
 class App extends Component {
     render() {
@@ -39,7 +40,7 @@ class App extends Component {
                                 <MDBCol md={2}/>
 
                                 <MDBCol md={5}>
-                                    <h1>MAP</h1>
+                                    <MapPage />
                                 </MDBCol>
                             </MDBRow>
                         </MDBContainer>
