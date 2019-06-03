@@ -16,13 +16,12 @@ class App extends Component {
         return (
             <React.Fragment>
                 <Router>
-                    <NavigationBar/>
-                    {/*<Jumbotron />*/}
                     <div className="bg">
-                        <MDBContainer>
+                    <NavigationBar/>
+
+                        <MDBContainer fluid>
                             <MDBRow>
-                                <MDBCol md={5}>
-                                    <Layout>
+                                <MDBCol xs={12} sm={12} md={5}>
                                         <Switch>
                                             <Route path="/places/:id" component={FullPage}/>
 
@@ -36,12 +35,10 @@ class App extends Component {
 
                                             <Route component={NoMatch}/>
                                         </Switch>
-                                    </Layout>
                                 </MDBCol>
 
-                                <MDBCol md={2}/>
 
-                                <MDBCol md={5}>
+                                <MDBCol xs={12} sm={12} md={5}>
                                     <MapPage />
                                 </MDBCol>
                             </MDBRow>

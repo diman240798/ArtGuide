@@ -37,7 +37,7 @@ class AttractionBriefInfoCard extends React.Component {
 
         return <React.Fragment>
             <MDBView hover zoom>
-                <MDBCard border>
+                <MDBCard style={{width: "20rem"}} border>
                     <MDBRow>
                         <MDBCol>
                             <div onClick={() => this.showMore(linkId)}>
