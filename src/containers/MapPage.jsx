@@ -2,6 +2,9 @@ import React from 'react'
 import MapComponent from '../components/MapComponent'
 import {connect} from "react-redux";
 import * as actions from '../actions'
+import {MDBCol, MDBRow} from "mdbreact";
+import MapBottomButton from "../components/MapBottomButton";
+import * as LocalRepository from "../repo/LocalRepository";
 
 class MapPage extends React.PureComponent {
 
@@ -9,15 +12,44 @@ class MapPage extends React.PureComponent {
         return false;
     }
 
-    render() {
-        const {fetchPlaceById, fetchPlacesByType, places} =this.props;
+    setMarkers(type) {
 
-        return <MapComponent
-            places={places}
-            fetchPlaceById={fetchPlaceById}
-            fetchPlacesByType={fetchPlacesByType}
-        />;
     }
+
+    render() {
+        const {fetchPlaceById, fetchPlacesByType, places} = this.props;
+
+
+        let bottomButtons = LocalRepository.LINKS.map(link => {
+            let type = `${link.slice(0, link.length - 1)}`;
+            let image = `/images/item_${type}.png`;
+            let imageChosen = `/images/item_${type}_chosen.png`;
+            return <div>
+                <MDBCol size={1}/>
+                <MDBCol size={1}>
+                    <MapBottomButton
+                        setMarkers={() =>this.setMarkers(type)}
+                        image={image}
+                        imageChosen={imageChosen}
+                    />
+                </MDBCol>
+            </div>
+        });
+
+
+
+        return <React.Fragment>
+            <MapComponent
+                places={places}
+                fetchPlaceById={fetchPlaceById}
+                fetchPlacesByType={fetchPlacesByType}
+            />
+            <MDBRow>
+                {bottomButtons}
+            </MDBRow>
+        </React.Fragment>;
+    }
+
 };
 
 const mapStateToProps = (state, ownProps) => ({

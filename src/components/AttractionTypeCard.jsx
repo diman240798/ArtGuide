@@ -1,7 +1,7 @@
 import React from 'react'
-import '../css/common.css'
 import {MDBCard, MDBCardImage, MDBCardTitle, MDBCol, MDBMask, MDBRow, MDBView, NavLink} from "mdbreact";
 import {connect} from "react-redux";
+import styles from "../css/common.css"
 
 class AttractionTypeCard extends React.Component {
 

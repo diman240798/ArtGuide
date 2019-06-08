@@ -19,7 +19,7 @@ class MapComponent extends React.Component {
     }
 
     render() {
-        const {fetchPlaceById, fetchPlacesByType} =this.props;
+        const {places, fetchPlaceById, fetchPlacesByType} =this.props;
 
         return (
                 <Map
@@ -34,9 +34,10 @@ class MapComponent extends React.Component {
                     />
 
                     <MarkerClusterGroup>
-                        <Marker position={[49.8397, 24.0297]} />
-                        <Marker position={[52.2297, 21.0122]} />
-                        <Marker position={[51.5074, -0.0901]} />
+                        {places.map(place =>
+                            <Marker position={[place.longitude, place.latitude]} />
+                        )
+                        }
                     </MarkerClusterGroup>
                 </Map>
         );

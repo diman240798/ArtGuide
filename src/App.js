@@ -3,13 +3,13 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {NoMatch} from './containers/NoMatch';
 import {Layout} from './components/Layout.jsx';
 import {NavigationBar} from './components/NavigationBar.jsx';
-import "./css/common.css"
 import TypesPage from "./containers/TypesPage";
 import {MDBCol, MDBContainer, MDBRow} from "mdbreact";
 import {LINKS, getPlaces} from "./repo/LocalRepository";
 import BriefPage from "./containers/BriefPage";
 import FullPage from "./containers/FullPage";
 import MapPage from "./containers/MapPage";
+import styles from "./css/common.css"
 
 class App extends Component {
     render() {
