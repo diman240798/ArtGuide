@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux";
-import {fetchPlaces} from '../actions'
+import {fetchPlacesByType} from '../actions'
 import AttractionBriefInfoCard from "../components/AttractionBriefInfoCard";
 
 class BriefPage extends React.Component {
@@ -36,7 +36,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchPlaces: (attractionType) => dispatch(fetchPlaces(attractionType))
+        fetchPlaces: (attractionType) => dispatch(fetchPlacesByType(attractionType))
     }
 };
 

@@ -4,7 +4,7 @@ const initialState = {
     list: []
 };
 
-const Places = (state = initialState, action) => {
+const Map = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SET_PLACES_LIST_BY_TYPE:
             return {
@@ -16,4 +16,4 @@ const Places = (state = initialState, action) => {
     }
 };
 
-export default Places;
+export default Map;

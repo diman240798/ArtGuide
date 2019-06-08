@@ -5,7 +5,8 @@ import * as places from "./places";
 
 function* actionWatcher() {
     yield takeLatest(actionTypes.FETCH_TYPES_LIST, types.fetchTypes);
-    yield takeLatest(actionTypes.FETCH_PLACES_LIST, places.fetchPlaces);
+    yield takeLatest(actionTypes.FETCH_PLACES_LIST_BY_TYPE, places.fetchPlaces);
+    yield takeLatest(actionTypes.FETCH_PLACE_BY_ID, places.fetchPlaceById);
 }
 export default function* rootSaga() {
     yield all([

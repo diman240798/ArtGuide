@@ -1,11 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import createSagaMiddleware from 'redux-saga';
-import {render} from 'react-dom';
-import {createStore, applyMiddleware} from 'redux';
+import {applyMiddleware, compose, createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {logger} from 'redux-logger';
 import reducer from './reducers';
@@ -16,9 +15,11 @@ import "mdbreact/dist/css/mdb.css";
 
 const sagaMiddleware = createSagaMiddleware();
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
     reducer,
-    applyMiddleware(sagaMiddleware, logger),
+    composeEnhancer(applyMiddleware(sagaMiddleware, logger))
 );
 sagaMiddleware.run(rootSaga);
 render(

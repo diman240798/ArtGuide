@@ -11,7 +11,7 @@ class AttractionFullInfoCard extends React.Component {
 
         return <React.Fragment>
             <MDBView hover zoom>
-                <MDBCard border>
+                <MDBCard style={{width: "50em"}} border>
                     <MDBRow>
                         <MDBCol>
                             <div onClick={() => {}}>

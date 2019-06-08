@@ -1,9 +1,10 @@
 import React from 'react';
-import { Map, TileLayer } from 'react-leaflet';
+// js
+import { Map, TileLayer, Marker } from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+// css
 import 'leaflet/dist/leaflet.css';
-import styled from 'styled-components';
-
-
+import 'react-leaflet-markercluster/dist/styles.min.css';
 
 const stamenTonerTiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const stamenTonerAttr = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
@@ -11,8 +12,41 @@ const mapCenter = [39.9528, -75.1638];
 const zoomLevel = 12;
 
 
-export default class MapComponent extends React.Component {
-    /*componentDidMount() {
+class MapComponent extends React.Component {
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return false;
+    }
+
+    render() {
+        const {fetchPlaceById, fetchPlacesByType} =this.props;
+
+        return (
+                <Map
+                    center={[47.225424, 39.723460]}
+                    zoom={14}
+                    maxZoom={19}
+                    minZoom={10}
+                >
+                    <TileLayer
+                        attribution={stamenTonerAttr}
+                        url={stamenTonerTiles}
+                    />
+
+                    <MarkerClusterGroup>
+                        <Marker position={[49.8397, 24.0297]} />
+                        <Marker position={[52.2297, 21.0122]} />
+                        <Marker position={[51.5074, -0.0901]} />
+                    </MarkerClusterGroup>
+                </Map>
+        );
+    }
+}
+
+export default MapComponent;
+
+
+/*componentDidMount() {
         this.map = L.map('map', {
             center: [47.225424, 39.723460],
             zoom: 12,
@@ -37,18 +71,3 @@ export default class MapComponent extends React.Component {
             })
             .addTo(this.map);
     }*/
-
-    render() {
-        return (
-                <Map
-                    center={[47.225424, 39.723460]}
-                    zoom={12}
-                >
-                    <TileLayer
-                        attribution={stamenTonerAttr}
-                        url={stamenTonerTiles}
-                    />
-                </Map>
-        );
-    }
-}

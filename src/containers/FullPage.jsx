@@ -1,17 +1,16 @@
 import React from 'react'
 import {connect} from "react-redux";
+import {fetchPlaceById} from '../actions'
 import AttractionFullInfoCard from "../components/AttractionFullInfoCard";
-import * as LocalRepository from '../repo/LocalRepository';
 
 class FullPage extends React.Component {
-    state = {
-        placeId: -1
-    };
 
     componentWillMount() {
         let url = this.props.location.pathname;
         const placeId = url.slice("/places/".length, url.length)
-        this.state.placeId = placeId;
+
+        const {getPlaceById} = this.props;
+        getPlaceById(placeId)
     }
 
     componentDidMount() {
@@ -19,9 +18,8 @@ class FullPage extends React.Component {
     }
 
     render() {
-        const {getPlaceById} = this.props;
-        const {placeId} = this.state;
-        const place = getPlaceById(placeId);
+        const {place} = this.props;
+        if (!place) return null;
 
         return <React.Fragment>
             <AttractionFullInfoCard {...place} />
@@ -29,15 +27,14 @@ class FullPage extends React.Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        getPlaceById: id => LocalRepository.getPlaceById(id)
-    }
-};
+const mapStateToProps = (state, ownProps) => ({
+    place: state.fullpage.place
 
-const mapDispatchToProps = dispatch => {
-    return {}
-};
+});
+
+const mapDispatchToProps = dispatch => ({
+    getPlaceById: id => dispatch(fetchPlaceById(id))
+});
 
 export default connect(
     mapStateToProps,

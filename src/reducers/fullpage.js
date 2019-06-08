@@ -1,19 +1,19 @@
 import * as actionTypes from '../actions/action_types'
 
 const initialState = {
-    list: []
+    place: {}
 };
 
-const Places = (state = initialState, action) => {
+const FullPage = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.SET_PLACES_LIST_BY_TYPE:
+        case actionTypes.SET_PLACE_BY_ID:
             return {
                 ...state,
-                list: action.payload
+                place: action.payload
             };
         default:
             return state
     }
 };
 
-export default Places;
+export default FullPage;
