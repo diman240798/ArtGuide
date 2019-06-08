@@ -5,6 +5,7 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 // css
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
+import * as L from "leaflet";
 
 const stamenTonerTiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const stamenTonerAttr = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
@@ -14,12 +15,8 @@ const zoomLevel = 12;
 
 class MapComponent extends React.Component {
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return false;
-    }
-
     render() {
-        const {places, fetchPlaceById, fetchPlacesByType} =this.props;
+        const {places, fetchTypes, fetchPlaceById, fetchPlacesByType} =this.props;
 
         return (
                 <Map
@@ -34,9 +31,22 @@ class MapComponent extends React.Component {
                     />
 
                     <MarkerClusterGroup>
-                        {places.map(place =>
-                            <Marker position={[place.longitude, place.latitude]} />
-                        )
+                        {places.map(place => {
+                            let icon = `/images/map_marker_museam.png`;
+
+                            const iconPerson = new L.Icon({
+                                iconUrl: icon,
+                                iconAnchor: null,
+                                popupAnchor: null,
+                                shadowUrl: null,
+                                shadowSize: null,
+                                shadowAnchor: null,
+                                iconSize: new L.Point(20, 35),
+                                className: 'leaflet-div-icon'
+                            });
+
+                            return <Marker position={[place.longitude, place.latitude]} icon={iconPerson}/>
+                        })
                         }
                     </MarkerClusterGroup>
                 </Map>

@@ -8,17 +8,14 @@ import * as LocalRepository from "../repo/LocalRepository";
 
 class MapPage extends React.PureComponent {
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return false;
-    }
-
     setMarkers(type) {
-
+        const {fetchPlacesByType} = this.props;
+        fetchPlacesByType(type)
     }
 
     render() {
-        const {fetchPlaceById, fetchPlacesByType, places} = this.props;
-
+        const {fetchTypes, fetchPlaceById, fetchPlacesByType, places} = this.props;
+        if (!places) return null;
 
         let bottomButtons = LocalRepository.LINKS.map(link => {
             let type = `${link.slice(0, link.length - 1)}`;
@@ -28,7 +25,7 @@ class MapPage extends React.PureComponent {
                 <MDBCol size={1}/>
                 <MDBCol size={1}>
                     <MapBottomButton
-                        setMarkers={() =>this.setMarkers(type)}
+                        setMarkers={() =>this.setMarkers(link)}
                         image={image}
                         imageChosen={imageChosen}
                     />
@@ -41,6 +38,7 @@ class MapPage extends React.PureComponent {
         return <React.Fragment>
             <MapComponent
                 places={places}
+                fetchTypes={fetchTypes}
                 fetchPlaceById={fetchPlaceById}
                 fetchPlacesByType={fetchPlacesByType}
             />
@@ -57,6 +55,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    fetchTypes: () => dispatch(actions.fetchTypes()),
     fetchPlaceById: id => dispatch(actions.fetchPlaceById(id)),
     fetchPlacesByType: type => dispatch(actions.fetchPlacesByType(type)),
 });
