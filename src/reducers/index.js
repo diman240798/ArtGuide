@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux'
+import {combineReducers} from 'redux'
 import Types from "./types";
 import Places from "./places";
 import Map from "./map";
@@ -10,9 +10,5 @@ const rootReducer = combineReducers({
     map: Map,
     fullpage: FullPage
 });
-
-const store = createStore(
-    rootReducer,
-    );
 
 export default rootReducer;

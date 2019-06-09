@@ -1,55 +1,58 @@
 import React from 'react';
 // js
-import { Map, TileLayer, Marker } from 'react-leaflet';
+import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
+import * as L from "leaflet";
+import * as LocalRepository from "../repo/LocalRepository";
 // css
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
-import * as L from "leaflet";
 
 const stamenTonerTiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const stamenTonerAttr = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
-const mapCenter = [39.9528, -75.1638];
-const zoomLevel = 12;
 
 
 class MapComponent extends React.Component {
 
     render() {
-        const {places, fetchTypes, fetchPlaceById, fetchPlacesByType} =this.props;
+        const {places, fetchTypes, fetchPlaceById, fetchPlacesByType} = this.props;
 
         return (
-                <Map
-                    center={[47.225424, 39.723460]}
-                    zoom={14}
-                    maxZoom={19}
-                    minZoom={10}
-                >
-                    <TileLayer
-                        attribution={stamenTonerAttr}
-                        url={stamenTonerTiles}
-                    />
+            <Map center={[47.225424, 39.723460]}
+                 zoom={14}
+                 maxZoom={19}
+                 minZoom={10}
+            >
+                <TileLayer attribution={stamenTonerAttr}
+                           url={stamenTonerTiles}
+                />
 
-                    <MarkerClusterGroup>
-                        {places.map(place => {
-                            let icon = `/images/map_marker_museam.png`;
+                <MarkerClusterGroup>
+                    {places.map(place => {
+                        const link = LocalRepository.getAttractionType(place.id);
+                        let type = `${link.slice(0, link.length - 1)}`;
+                        let icon = `/images/map_marker_${type}.png`;
 
-                            const iconPerson = new L.Icon({
-                                iconUrl: icon,
-                                iconAnchor: null,
-                                popupAnchor: null,
-                                shadowUrl: null,
-                                shadowSize: null,
-                                shadowAnchor: null,
-                                iconSize: new L.Point(20, 35),
-                                className: 'leaflet-div-icon'
-                            });
+                        const markerIcon = new L.Icon({
+                            iconUrl: icon,
+                            shadowIcon: null,
+                            iconAnchor: null,
+                            popupAnchor: null,
+                            shadowUrl: null,
+                            shadowSize: null,
+                            shadowAnchor: null,
+                            iconSize: new L.Point(10, 30)
+                        });
 
-                            return <Marker position={[place.longitude, place.latitude]} icon={iconPerson}/>
-                        })
-                        }
-                    </MarkerClusterGroup>
-                </Map>
+                        return <Marker key={place.id} position={[place.longitude, place.latitude]} icon={markerIcon}>
+                            <Popup>
+                                A pretty CSS3 popup. <br/> Easily customizable.
+                            </Popup>
+                        </Marker>
+                    })
+                    }
+                </MarkerClusterGroup>
+            </Map>
         );
     }
 }

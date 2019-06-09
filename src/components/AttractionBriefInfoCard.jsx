@@ -1,17 +1,5 @@
 import React from 'react'
-import {
-    MDBBtn,
-    MDBCard,
-    MDBCardBody,
-    MDBCardImage,
-    MDBCardText,
-    MDBCardTitle,
-    MDBCol,
-    MDBRow,
-    MDBView,
-    NavLink
-} from 'mdbreact';
-import {Redirect} from "react-router-dom";
+import {MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBRow, MDBView} from 'mdbreact';
 
 
 class AttractionBriefInfoCard extends React.Component {
@@ -28,7 +16,7 @@ class AttractionBriefInfoCard extends React.Component {
     render() {
 
 
-        const {id, name, description, longitude, latitude, imageSmall, imageBig} = this.props;
+        const {id, name, description, imageSmall} = this.props;
 
         const smallImagePath = `images/${imageSmall}.jpg`;
         const descriptionText = `${description.slice(0, 60)}...`;
@@ -53,7 +41,8 @@ class AttractionBriefInfoCard extends React.Component {
 
                                 <MDBRow>
                                     <MDBCol xs={6}>
-                                        <MDBBtn onClick={() => this.showMore(linkId)} size="sm" style={{fontSize: "10px", backgroundColor: "#006C6D"}}>
+                                        <MDBBtn onClick={() => this.showMore(linkId)} size="sm"
+                                                style={{fontSize: "10px", backgroundColor: "#006C6D"}}>
                                             Подробнее
                                         </MDBBtn>
                                     </MDBCol>

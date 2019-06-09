@@ -21,7 +21,7 @@ class MapPage extends React.PureComponent {
             let type = `${link.slice(0, link.length - 1)}`;
             let image = `/images/item_${type}.png`;
             let imageChosen = `/images/item_${type}_chosen.png`;
-            return <div>
+            return <div key={type}>
                 <MDBCol size={1}/>
                 <MDBCol size={1}>
                     <MapBottomButton

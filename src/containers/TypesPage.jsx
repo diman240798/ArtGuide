@@ -21,7 +21,7 @@ class Types extends React.Component {
         return <React.Fragment>
             {
                 types.map(type =>
-                    <AttractionTypeCard {...type} />
+                    <AttractionTypeCard key={type.title} {...type} />
                 )
             }
         </React.Fragment>

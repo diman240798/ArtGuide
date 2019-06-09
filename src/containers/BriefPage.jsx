@@ -22,7 +22,7 @@ class BriefPage extends React.Component {
 
         return <React.Fragment>
             {places.map(place => (
-                <AttractionBriefInfoCard {...place} />
+                <AttractionBriefInfoCard key={place.id} {...place} />
             ))}
         </React.Fragment>
     }

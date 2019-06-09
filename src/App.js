@@ -29,7 +29,7 @@ class App extends Component {
                                             {
                                                 LINKS.map(link => {
                                                     const path = `/${link}`
-                                                    return <Route path={path} component={BriefPage}/>
+                                                    return <Route key={path} path={path} component={BriefPage}/>
                                                 })
                                             }
 

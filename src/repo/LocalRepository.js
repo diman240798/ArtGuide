@@ -41,7 +41,7 @@ const TYPES = [
     {
         title: ATTRACTION_TITLES[0],
         link: LINKS[0],
-        image: "map_marker_museam.png",
+        image: "map_marker_museum.png",
         maskColor: "red-light"
     }, {
         title: ATTRACTION_TITLES[1],
@@ -79,7 +79,7 @@ export const getPlaceById = (id) => {
     return getPlaces(attractionType).filter(place => place.id === id)[0];
 };
 
-const getAttractionType = (id) => {
+export const getAttractionType = (id) => {
     return LINKS[Math.floor(id / 100)]
 };
 
