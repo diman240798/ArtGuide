@@ -23,8 +23,9 @@ class MapComponent extends React.Component {
                  maxZoom={19}
                  minZoom={10}
             >
-                <TileLayer attribution={stamenTonerAttr}
-                           url={stamenTonerTiles}
+                <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                 />
 
                 <MarkerClusterGroup>
@@ -33,21 +34,20 @@ class MapComponent extends React.Component {
                         let type = `${link.slice(0, link.length - 1)}`;
                         let icon = `/images/map_marker_${type}.png`;
 
-                        const markerIcon = new L.Icon({
-                            iconUrl: icon,
-                            shadowIcon: null,
-                            iconAnchor: null,
-                            popupAnchor: null,
-                            shadowUrl: null,
-                            shadowSize: null,
-                            shadowAnchor: null,
-                            iconSize: new L.Point(10, 30)
-                        });
+                        let popUp = <Popup>
+                            <div>A pretty CSS3 popup. <br/> Easily customizable.</div>
+                        </Popup>;
 
-                        return <Marker key={place.id} position={[place.longitude, place.latitude]} icon={markerIcon}>
-                            <Popup>
-                                A pretty CSS3 popup. <br/> Easily customizable.
-                            </Popup>
+                        const pointerIcon = new L.Icon({
+                            iconUrl: icon,
+                            iconRetinaUrl: icon,
+                            iconAnchor: [0, 0],
+                            popupAnchor: [5, 5],
+                            iconSize: [10, 30],
+                        })
+
+                        return <Marker key={place.id} position={[place.longitude, place.latitude]} icon={pointerIcon}>
+                            <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
                         </Marker>
                     })
                     }

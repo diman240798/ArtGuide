@@ -7,7 +7,7 @@ class BriefPage extends React.Component {
     componentWillMount() {
         const {fetchPlaces} = this.props;
         let url = this.props.location.pathname;
-        const attractionType = url.slice(1, url.length)
+        const attractionType = url.slice(1, url.length);
         fetchPlaces(attractionType)
     }
 
