@@ -7,6 +7,7 @@ import * as LocalRepository from "../repo/LocalRepository";
 // css
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
+import MapComponentPreview from "./MapComponentPreview";
 
 const stamenTonerTiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const stamenTonerAttr = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
@@ -47,7 +48,9 @@ class MapComponent extends React.Component {
                         })
 
                         return <Marker key={place.id} position={[place.longitude, place.latitude]} icon={pointerIcon}>
-                            <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
+                            <Popup>
+                                <MapComponentPreview {...place}/>
+                            </Popup>
                         </Marker>
                     })
                     }
